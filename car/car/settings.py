@@ -10,13 +10,14 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    # 'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'car_app'
+    'admin',
+    'car_app',
 ]
 
 MIDDLEWARE = [
@@ -86,6 +87,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static/images"),
     os.path.join(BASE_DIR, "static/js"),
     os.path.join(BASE_DIR, "static/slick"),
+    os.path.join(BASE_DIR, "static/admin"),
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

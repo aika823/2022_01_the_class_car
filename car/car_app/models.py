@@ -16,7 +16,21 @@ class Consulting(models.Model):
     contact  = models.CharField(db_column="contact", null=False, max_length=20)
     location= models.CharField(db_column="location", null=False, max_length=20)
     privacy_agreement = models.BooleanField(db_column = "privacy_agreement", null=False, default=False)
+
+    status_consulting = models.CharField(max_length=20, db_column = "status_consulting", null=False, default='상담중')
+    status_selling = models.CharField(max_length=20, db_column = "status_selling", null=False, default='판매예약중')
+
+
     created_at = models.DateTimeField(db_column="created_at", null=False, default=timezone.now)
     
     class Meta:
         db_table = "consulting"
+
+
+class Admin(models.Model):
+
+    name = models.CharField(max_length=10, db_column="name")
+    password = models.CharField(max_length=20, db_column="password")
+
+    class Meta:
+        db_table = "admin"

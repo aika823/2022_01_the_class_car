@@ -92,7 +92,8 @@
                 <div class="slide">
                 {% for consulting in consulting_list %}
                 <div class="slide-card">
-                    <p class="status">상담완료</p>
+                    <p class="status">{{consulting.status_consulting}}</p>
+                    <!--<p class="status">{{consulting.status_selling}}</p>-->
                     <p class="consult-title">[{{consulting.car_name}}] 차량의 판매상담을 원합니다. ({{consulting.location}})</p>
                 </div>
                 {% endfor %}
