@@ -63,12 +63,16 @@
     <section id="main">
         <div class="main-wrap content">
             <div class="main-form">
-                <h1><span>내차팔기</span> 상담신청</h1>
-                <p>※ 전국 네트워크망 시스템을 통해서
-                  <br>인증된 딜러들의 입찰경쟁을 통해
+              <h1><span>내차팔기</span> 상담신청</h1>
+              <div class="type">
+                <a class="sell active" href="javascript:void(0)">내차판매</a>
+                <a class="buy" href="javascript:void(0)">내차구매</a>
+                <a class="discount" href="javascript:void(0)">할부상담</a>
+              </div>
+                <p>※ 전국 네트워크망 시스템을 통해서 인증된 딜러들의 입찰경쟁을 통해
                   <br>내차의 최고가 견적을 알아보세요!</p>
 
-                <form action="" method="post">
+                <form action="" method="post" class="form-sell">
                 {% csrf_token %}
                     <div class="form-row">
                         <input type="text" name="car_name" placeholder="차량명을 입력해주세요." required/>
@@ -87,6 +91,46 @@
                         <button class="btn-submit" type="submit">내차팔기상담신청</button>
                     </div>
                 </form>
+
+                <form action="" method="post" class="form-buy">
+                  {% csrf_token %}
+                      <div class="form-row">
+                          <input type="text" name="car_name" placeholder="차량명을 입력해주세요." required/>
+                      </div>
+                      <div class="form-row">
+                          <input type="text" name="contact" placeholder="연락처를 입력해주세요. Ex) 01012341234" required />
+                      </div>
+                      <div class="form-row">
+                          <input type="text" name="location" placeholder="지역명을 입력해주세요." required />
+                      </div>
+                      <div class="form-row form-row--checkbox">
+                          <input type="checkbox" name="privacy_agreement" required>
+                          <label for="">개인정보 수집/이용 동의 <a href="javascript:void(0)">[내용보기]</a></label>
+                      </div>
+                      <div class="form-row">
+                          <button class="btn-submit" type="submit">내차팔기상담신청</button>
+                      </div>
+                  </form>
+
+                  <form action="" method="post" class="form-discount">
+                    {% csrf_token %}
+                        <div class="form-row">
+                            <input type="text" name="car_name" placeholder="차량명을 입력해주세요." required/>
+                        </div>
+                        <div class="form-row">
+                            <input type="text" name="contact" placeholder="연락처를 입력해주세요. Ex) 01012341234" required />
+                        </div>
+                        <div class="form-row">
+                            <input type="text" name="location" placeholder="지역명을 입력해주세요." required />
+                        </div>
+                        <div class="form-row form-row--checkbox">
+                            <input type="checkbox" name="privacy_agreement" required>
+                            <label for="">개인정보 수집/이용 동의 <a href="javascript:void(0)">[내용보기]</a></label>
+                        </div>
+                        <div class="form-row">
+                            <button class="btn-submit" type="submit">내차팔기상담신청</button>
+                        </div>
+                    </form>
             </div>
 
             <div class="consulting-wrap">
@@ -450,6 +494,29 @@
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
         }
+    </script>
+
+    <script>
+      $("#main .type a").click(function() {
+        if($(this).hasClass('active') == false) {
+          $('#main .type a').removeClass('active');
+          $(this).addClass('active');
+        }
+
+        if($(this).hasClass('sell') == true) {
+          $('.main-form form').css('display', 'none');
+          $('.form-sell').css('display', 'block');
+          $('.main-form h1 span').text('내차팔기');
+        } else if($(this).hasClass('buy') == true) {
+          $('.main-form form').css('display', 'none');
+          $('.form-buy').css('display', 'block');
+          $('.main-form h1 span').text('내차사기');
+        } else if($(this).hasClass('discount') == true) {
+          $('.main-form form').css('display', 'none');
+          $('.form-discount').css('display', 'block');
+          $('.main-form h1 span').text('할부상담');
+        }
+      });
     </script>
 </body>
 

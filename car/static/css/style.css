@@ -24,6 +24,28 @@ section#main .main-wrap .main-form {
   box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.25);
   width: 100%;
   box-sizing: border-box;
+  /* position: relative; */
+}
+section#main .main-wrap .main-form .type {
+  /* position: absolute; */
+  /* top: -25px;
+  left: -10px; */
+  box-sizing: border-box;
+  margin: 20px 0;
+}
+section#main .main-wrap .main-form .type a {
+  background-color: #fff;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 1px solid #c2c2c2;
+  color: #c2c2c2;
+  padding: 5px 10px;
+}
+section#main .main-wrap .main-form .type a.active {
+  border: 1px solid #00C7AE;
+  border-radius: 10px;
+  color:#00C7AE;
+  box-sizing: border-box;
 }
 section#main .main-wrap .main-form h1 {
   font-size: 25px;
@@ -40,6 +62,10 @@ section#main .main-wrap .main-form p {
 section#main .main-wrap .main-form form {
   width: 100%;
   margin: 35px 0 0;
+}
+section#main .main-wrap .main-form form.form-buy,
+section#main .main-wrap .main-form form.form-discount {
+  display: none;
 }
 section#main .main-wrap .main-form .form-row {
   margin: 20px 0;
@@ -110,7 +136,7 @@ section#main .main-wrap .consulting-wrap .slide-card p.status {
   margin-right: 3rem;
 }
 section#main .main-wrap .consulting-wrap .slide-card p.consult-title {
-  width: 300px;
+  width: 370px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -321,6 +347,10 @@ section#contact h2 {
   section#review .review-wrap {
     grid-template-columns: 1fr 1fr;
   }
+
+  section#main .main-wrap .consulting-wrap .slide-card p.consult-title {
+    width: 300px;
+  }
 }
 
 @media all and (max-width: 768px) {
@@ -452,5 +482,10 @@ section#contact h2 {
   }
   .slick-next {
     right: 10px;
+  }
+
+  section#main .main-wrap .main-form .type a {
+    padding: 3px;
+    font-size: 14px;
   }
 }
