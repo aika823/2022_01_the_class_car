@@ -1,5 +1,8 @@
 import os
 from pathlib import Path
+import pymysql
+
+pymysql.install_as_MySQLdb()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -54,6 +57,17 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'dbdata2412',
+        'USER': 'data2412',
+        'PASSWORD': 'dlfflxj1313!',
+        'HOST': 'db.theclasscar.com',
+        'PORT': '3306',
     }
 }
 
