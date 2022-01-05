@@ -64,7 +64,9 @@
         <div class="main-wrap content">
             <div class="main-form">
                 <h1><span>내차팔기</span> 상담신청</h1>
-                <p>※ 전국 네트워크망을 통하여 편안하게 내 차 견적을 알아보세요!</p>
+                <p>※ 전국 네트워크망 시스템을 통해서
+                  <br>인증된 딜러들의 입찰경쟁을 통해
+                  <br>내차의 최고가 견적을 알아보세요!</p>
 
                 <form action="" method="post">
                 {% csrf_token %}
@@ -174,91 +176,172 @@
 
 
     <!-- section#review start -->
-    <section id="review">
+    <section id="review" class="pc">
         <div class="content">
             <h2 class="section-title">고객후기</h2>
             <div class="review-wrap">
                 <div class="review-item">
-                    <div class="review-image">
-                        <img src="/static/images/review.png" alt="">
+                    <div class="review-image" style="height: 370px; overflow:visible; background-image: url('/static/images/review.png'); background-position: center;">
+                        <!-- <img src="/static/images/review.png" alt="" style="height: 310px;"> -->
                     </div>
-                    <div class="review-text">
+                    <!-- <div class="review-text">
 
-                    </div>
+                    </div> -->
                 </div>
                 <div class="review-item">
-                    <div class="review-image">
-                        <img src="/static/images/review (1).jpg" alt="">
+                    <div class="review-image" style="background-image: url('/static/images/review (1).jpg');">
+                        <!-- <img src="/static/images/review (1).jpg" alt=""> -->
                     </div>
                     <div class="review-text">
                         <h4>아우디A6 판매후기</h4>
-                        <p>후기내용후기내용후기내용후기내용 후기내용후기내용후기내용 후기내용후기내용후기내용후기내용
+                        <p>최고가에 판매했고, 정말 친절하게 진행해 주셨습니다!! 추천드립니다!
                         </p>
                     </div>
                 </div>
                 <div class="review-item">
-                    <div class="review-image">
-                        <img src="/static/images/review (2).jpg" alt="">
+                    <div class="review-image" style="background-image: url('/static/images/review (2).jpg');">
+                        <!-- <img src="/static/images/review (2).jpg" alt=""> -->
                     </div>
                     <div class="review-text">
                         <h4>아우디A6 판매후기</h4>
-                        <p>후기내용후기내용후기내용후기내용 후기내용후기내용후기내용 후기내용후기내용후기내용후기내용
+                        <p>꼼꼼하게 봐주시고, 친절하게 상담해 주셔서 감사합니다. 덕분에 최고가에 판매했습니다!
                         </p>
                     </div>
                 </div>
                 <div class="review-item">
-                    <div class="review-image">
-                        <img src="/static/images/review (3).jpg" alt="">
+                    <div class="review-image" style="background-image: url('/static/images/review (3).jpg');">
+                        <!-- <img src="/static/images/review (3).jpg" alt=""> -->
                     </div>
                     <div class="review-text">
                         <h4>아우디A6 판매후기</h4>
-                        <p>후기내용후기내용후기내용후기내용 후기내용후기내용후기내용 후기내용후기내용후기내용후기내용
+                        <p>최고가에 판매했습니다. 대만족합니다!! 감사합니다!!!
                         </p>
                     </div>
                 </div>
                 <div class="review-item">
-                    <div class="review-image">
-                        <img src="/static/images/review (4).jpg" alt="">
+                    <div class="review-image" style="background-image: url('/static/images/review (4).jpg');">
+                        <!-- <img src="/static/images/review (4).jpg" alt=""> -->
                     </div>
                     <div class="review-text">
                         <h4>아우디A6 판매후기</h4>
-                        <p>후기내용후기내용후기내용후기내용 후기내용후기내용후기내용 후기내용후기내용후기내용후기내용
+                        <p>친절한 응대와 세심한 처리 감사드립니다. 최고가에 판매 했습니다.
                         </p>
                     </div>
                 </div>
                 <div class="review-item">
-                    <div class="review-image">
-                        <img src="/static/images/review (5).jpg" alt="">
+                    <div class="review-image" style="background-image: url('/static/images/review (5).jpg');">
+                        <!-- <img src="/static/images/review (5).jpg" alt=""> -->
                     </div>
                     <div class="review-text">
                         <h4>아우디A6 판매후기</h4>
-                        <p>후기내용후기내용후기내용후기내용 후기내용후기내용후기내용 후기내용후기내용후기내용후기내용
+                        <p>덕분에 최고가에 판매했어요. 감사합니다! 지인에게도 추천할게요~
                         </p>
                     </div>
                 </div>
                 <div class="review-item">
-                    <div class="review-image">
-                        <img src="/static/images/review (6).jpg" alt="">
+                    <div class="review-image" style="background-image: url('/static/images/review (6).jpg');">
+                        <!-- <img src="/static/images/review (6).jpg" alt=""> -->
                     </div>
                     <div class="review-text">
                         <h4>아우디A6 판매후기</h4>
-                        <p>후기내용후기내용후기내용후기내용 후기내용후기내용후기내용 후기내용후기내용후기내용후기내용
+                        <p>신경 많이 써주셔서 감사합니다. 덕분에 최고가에 판매할 수 있었습니다. 
                         </p>
                     </div>
                 </div>
                 <div class="review-item">
-                    <div class="review-image">
-                        <img src="/static/images/review (7).jpg" alt="">
+                    <div class="review-image" style="background-image: url('/static/images/review (7).jpg');">
+                        <!-- <img src="/static/images/review (7).jpg" alt=""> -->
                     </div>
                     <div class="review-text">
                         <h4>아우디A6 판매후기</h4>
-                        <p>후기내용후기내용후기내용후기내용 후기내용후기내용후기내용 후기내용후기내용후기내용후기내용
+                        <p>원래 후기를 잘 안남기는데 친절하게 상담해주시고, 최고가에 판매할 수 있도록 많은 도움 주셨습니다. 감사합니다!!!!
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    <!-- section#review end -->
+
+    <!-- section#review start -->
+    <section id="review" class="mobile">
+      <div class="content">
+        <h2 class="section-title">고객후기</h2>
+        <div class="review-wrap slide-review">
+          <div class="review-item">
+              <div class="review-image" style="background-image: url('/static/images/review (1).jpg');">
+                  <!-- <img src="/static/images/review (1).jpg" alt=""> -->
+              </div>
+              <div class="review-text">
+                  <h4>아우디A6 판매후기</h4>
+                  <p>최고가에 판매했고, 정말 친절하게 진행해 주셨습니다!! 추천드립니다!
+                  </p>
+              </div>
+          </div>
+          <div class="review-item">
+              <div class="review-image" style="background-image: url('/static/images/review (2).jpg');">
+                  <!-- <img src="/static/images/review (2).jpg" alt=""> -->
+              </div>
+              <div class="review-text">
+                  <h4>아우디A6 판매후기</h4>
+                  <p>꼼꼼하게 봐주시고, 친절하게 상담해 주셔서 감사합니다. 덕분에 최고가에 판매했습니다!
+                  </p>
+              </div>
+          </div>
+          <div class="review-item">
+              <div class="review-image" style="background-image: url('/static/images/review (3).jpg');">
+                  <!-- <img src="/static/images/review (3).jpg" alt=""> -->
+              </div>
+              <div class="review-text">
+                  <h4>아우디A6 판매후기</h4>
+                  <p>최고가에 판매했습니다. 대만족합니다!! 감사합니다!!!
+                  </p>
+              </div>
+          </div>
+          <div class="review-item">
+              <div class="review-image" style="background-image: url('/static/images/review (4).jpg');">
+                  <!-- <img src="/static/images/review (4).jpg" alt=""> -->
+              </div>
+              <div class="review-text">
+                  <h4>아우디A6 판매후기</h4>
+                  <p>친절한 응대와 세심한 처리 감사드립니다. 최고가에 판매 했습니다.
+                  </p>
+              </div>
+          </div>
+          <div class="review-item">
+              <div class="review-image" style="background-image: url('/static/images/review (5).jpg');">
+                  <!-- <img src="/static/images/review (5).jpg" alt=""> -->
+              </div>
+              <div class="review-text">
+                  <h4>아우디A6 판매후기</h4>
+                  <p>덕분에 최고가에 판매했어요. 감사합니다! 지인에게도 추천할게요~
+                  </p>
+              </div>
+          </div>
+          <div class="review-item">
+              <div class="review-image" style="background-image: url('/static/images/review (6).jpg');">
+                  <!-- <img src="/static/images/review (6).jpg" alt=""> -->
+              </div>
+              <div class="review-text">
+                  <h4>아우디A6 판매후기</h4>
+                  <p>신경 많이 써주셔서 감사합니다. 덕분에 최고가에 판매할 수 있었습니다. 
+                  </p>
+              </div>
+          </div>
+          <div class="review-item">
+              <div class="review-image" style="background-image: url('/static/images/review (7).jpg');">
+                  <!-- <img src="/static/images/review (7).jpg" alt=""> -->
+              </div>
+              <div class="review-text">
+                  <h4>아우디A6 판매후기</h4>
+                  <p>원래 후기를 잘 안남기는데 친절하게 상담해주시고, 최고가에 판매할 수 있도록 많은 도움 주셨습니다. 감사합니다!!!!
+                  </p>
+              </div>
+          </div>
+          </div>
+      </div>
+    </section>
+
     <!-- section#review end -->
 
 
@@ -330,6 +413,15 @@
                 // }]
             });
         });
+    </script>
+
+    <script>
+      $('.slide-review').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+      });
     </script>
 
     <script>

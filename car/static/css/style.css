@@ -181,36 +181,53 @@ section#review {
   padding: 150px 0 100px;
   background-color: #F9F9F9;
 }
+section#review.mobile {
+  display: none;
+}
 section#review .review-wrap {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   column-gap: 40px;
+  row-gap: 40px;
   justify-items: center;
   align-items: center;
   width: 100%;
 }
 section#review .review-wrap .review-item {
-  width: 100%;
+  /* width: 100%; */
+  width: 280px;
   box-sizing: border-box;
+  border-radius: 20px;
+  box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  display: grid;
+  /* grid-template-rows: 1fr 1fr; */
+  /* overflow: hidden; */
+  /* filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.6)); */
 }
 section#review .review-wrap .review-item .review-image {
-  filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.6));
-  border-radius: 20px 20px 0px 20px;
+  /* border-radius: 20px 20px 0px 20px; */
   width: 100%;
+  height: 210px;
+  overflow: hidden;
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 section#review .review-wrap .review-item .review-image img {
   width: 100%;
-  border-radius: 20px 20px 0px 20px;
 }
 section#review .review-wrap .review-item .review-text {
-  height: 150px;
+  height: 160px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 0 10px;
 }
 section#review .review-wrap .review-item .review-text p {
   margin-top: 10px;
   color: #545454;
+  font-size: 14px;
   /* overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis; */
@@ -327,6 +344,24 @@ section#contact h2 {
   section#review .review-wrap {
     column-gap: 20px;
   }
+  section#review.pc {
+    display: none;
+  }
+  section#review.mobile {
+    display: block;
+  }
+  section#review.mobile .review-wrap {
+    grid-template-columns: 1fr;
+  }
+  section#review.mobile .review-wrap .slick-list {
+    height: 370px;
+    width: 285px;
+    box-shadow: 2px 2px 16px rgb(0 0 0 / 25%);
+    border-radius: 20px;
+  }
+  section#review.mobile .review-wrap .review-item {
+    box-shadow: none;
+  }
   section#review .review-wrap .review-item .review-text p {
     font-size: 14px;
   }
@@ -391,6 +426,17 @@ section#contact h2 {
   section#review {
     padding-top: 100px;
   }
+
+  section#review.mobile .review-wrap .slick-list {
+    height: 370px;
+    width: 230px;
+  }
+  .slick-prev{
+    left: 10px;
+  }
+  .slick-next {
+    right: 30px;
+  }
 } 
 
 @media all and (max-width: 350px) {
@@ -399,5 +445,12 @@ section#contact h2 {
   }
   footer {
     font-size: 11px;
+  }
+
+  .slick-prev{
+    left: -10px;
+  }
+  .slick-next {
+    right: 10px;
   }
 }

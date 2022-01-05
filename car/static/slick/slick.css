@@ -24,12 +24,13 @@
     position: relative;
 
     display: block;
-    /* overflow: hidden; */
+    overflow: hidden;
 
     margin: 0;
     padding: 0;
 
     height: 300px;
+    width: 102%;
 }
 .slick-list:focus
 {
