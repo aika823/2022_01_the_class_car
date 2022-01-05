@@ -3,7 +3,6 @@ from datetime import date, timedelta, datetime
 from car_app.models import Admin, Consulting
 
 def loged_in(request):
-    return True
     try: 
         id = request.session['admin']
         admin = Admin.objects.get(id=id)
