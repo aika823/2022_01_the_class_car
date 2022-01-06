@@ -9,30 +9,26 @@
 
                     <div class="card">
 
-                        {% if location %}
+                        {% if sell %}
                         <form id="deleteForm" action="/admin/delete" method="post">
                             {% csrf_token %}
-                            <input type="hidden" name="table" value="location">
-                            <input type="hidden" name="id" value="{{location.id}}">
+                            <input type="hidden" name="table" value="sell">
+                            <input type="hidden" name="id" value="{{sell.id}}">
                         </form>
                         {% endif %}
 
-                        {% if location %}
                         <div class="card-header">
-                            <strong>당첨 판매점 정보 수정 ({{location.name}})</strong>
+                            <strong>상담 정보 수정 (내차구매)</strong>
                         </div>
-                        {% else %}
-                        <div class="card-header">
-                            <strong>당첨 판매점 정보 추가</strong>
-                        </div>
-                        {% endif %}
 
-                        <form id="createForm" action="/admin/create_location" method="post" class="form-horizontal">
+                        <form id="createForm" action="/admin/create" method="post" class="form-horizontal">
 
                             {% csrf_token %}
-                            {% if location %}
-                            <input type="hidden" name='id' value="{{location.id}}">
+                            <input type="hidden" name='table' value="sell">
+
+                            {% if sell %}
                             <input type="hidden" name='action' value="update">
+                            <input type="hidden" name='id' value="{{sell.id}}">
                             {% else %}
                             <input type="hidden" name='action' value="create">
                             {% endif %}
@@ -40,54 +36,44 @@
                             <div class="card-body card-block">
 
                                 <div class="row form-group">
-                                    <div class="col col-md-2"><label class=" form-control-label">회차</label>
-                                    </div>
+                                    <div class="col col-md-2"><label class=" form-control-label">차량명</label></div>
                                     <div class="col-12 col-md-2">
-                                        
-                                        <select class="form-control" name="round" value="{{location.lotto.round}}">
-                                            {% for my_lotto in lotto_list %}
-                                            <option value="{{my_lotto.round}}"
-                                                {% if location.lotto.round == my_lotto.round %} selected {% endif %}>
-                                                {{my_lotto.round}}회차
-                                            </option>
-                                            {% endfor %}
-                                        </select>
-
-                                    </div>
-                                </div>
-
-                                <div class="row form-group">
-                                    <div class="col col-md-2"><label class=" form-control-label">등수</label></div>
-                                    <div class="col-12 col-md-2">
-                                        <input type="number" name="rank" class="form-control" value="{{location.rank}}"
+                                        <input type="text" name="car_name" class="form-control" value="{{sell.car_name}}"
                                             required>
                                     </div>
                                 </div>
 
                                 <div class="row form-group">
-                                    <div class="col col-md-2"><label class=" form-control-label">상호명</label></div>
+                                    <div class="col col-md-2"><label class=" form-control-label">연락처</label></div>
                                     <div class="col-12 col-md-2">
-                                        <input type="text" name="name" class="form-control" value="{{location.name}}"
-                                            required>
+                                        <input type="text" name="contact" class="form-control"
+                                            value="{{sell.contact}}" required>
                                     </div>
                                 </div>
 
                                 <div class="row form-group">
-                                    <div class="col col-md-2"><label class=" form-control-label">구분</label></div>
+                                    <div class="col col-md-2"><label class=" form-control-label">지역명</label></div>
                                     <div class="col-12 col-md-2">
-                                        <input type="text" name="type" class="form-control" value="{{location.type}}"
-                                            required>
+                                        <input type="text" name="location" class="form-control"
+                                            value="{{sell.location}}" required>
                                     </div>
                                 </div>
 
                                 <div class="row form-group">
-                                    <div class="col col-md-2"><label class=" form-control-label">주소</label></div>
+                                    <div class="col col-md-2"><label class=" form-control-label">상담현황</label></div>
                                     <div class="col-12 col-md-2">
-                                        <input type="text" name="address" class="form-control"
-                                            value="{{location.address}}" required>
+                                        <input type="text" name="status_consulting" class="form-control"
+                                            value="{{sell.status_consulting}}" required>
                                     </div>
                                 </div>
 
+                                <div class="row form-group">
+                                    <div class="col col-md-2"><label class=" form-control-label">판매현황</label></div>
+                                    <div class="col-12 col-md-2">
+                                        <input type="text" name="status_selling" class="form-control"
+                                            value="{{sell.status_selling}}" required>
+                                    </div>
+                                </div>
 
 
                             </div>
@@ -95,7 +81,7 @@
 
                         <!-- footer -->
                         <div class="card-footer" style="text-align: right;">
-                            {% if location %}
+                            {% if sell %}
                             <button type="submit" class="btn btn-outline-primary btn-sm" form="createForm">
                                 수정하기
                             </button>

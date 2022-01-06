@@ -16,17 +16,25 @@
                         <div class="card-body">
 
                             <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
-                                
+
                                 <thead>
                                     <tr>
-                                        <th scope="col">회차</th>
+                                        <th scope="col">차량명</th>
+                                        <th scope="col">연락처</th>
+                                        <th scope="col">지역명</th>
+                                        <th scope="col">상담현황</th>
+                                        <th scope="col">판매현황</th>
                                     </tr>
                                 </thead>
-                                
+
                                 <tbody>
-                                    {% for lotto in lotto_list %}
-                                    <tr>
-                                        <td>{{lotto.round}}</td>
+                                    {% for buy in buy_list %}
+                                    <tr onclick="location.href='/admin/buy/{{buy.id}}'">
+                                        <td>{{buy.car_name}}</td>
+                                        <td>{{buy.contact}}</td>
+                                        <td>{{buy.location}}</td>
+                                        <td>{{buy.status_consulting}}</td>
+                                        <td>{{buy.status_selling}}</td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>

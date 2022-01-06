@@ -19,22 +19,22 @@
 
                                 <thead>
                                     <tr>
-                                        <th scope="col">회차</th>
-                                        <th scope="col">등수</th>
-                                        <th scope="col">상호명</th>
-                                        <th scope="col">주소</th>
-                                        <th scope="col">구분</th>
+                                        <th scope="col">차량명</th>
+                                        <th scope="col">연락처</th>
+                                        <th scope="col">지역명</th>
+                                        <th scope="col">상담현황</th>
+                                        <th scope="col">판매현황</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    {% for location in location_list %}
-                                    <tr onclick="location.href='/admin/location/{{location.id}}'">
-                                        <td>{{location.lotto.round}}</td>
-                                        <td>{{location.rank}}</td>
-                                        <td>{{location.name}}</td>
-                                        <td>{{location.address}}</td>
-                                        <td>{{location.type}}</td>
+                                    {% for sell in sell_list %}
+                                    <tr onclick="location.href='/admin/sell/{{sell.id}}'">
+                                        <td>{{sell.car_name}}</td>
+                                        <td>{{sell.contact}}</td>
+                                        <td>{{sell.location}}</td>
+                                        <td>{{sell.status_consulting}}</td>
+                                        <td>{{sell.status_selling}}</td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>

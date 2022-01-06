@@ -9,24 +9,26 @@
 
                     <div class="card">
 
-                        {% if consulting %}
+                        {% if buy %}
                         <form id="deleteForm" action="/admin/delete" method="post">
                             {% csrf_token %}
-                            <input type="hidden" name="table" value="consulting">
-                            <input type="hidden" name="id" value="{{consulting.id}}">
+                            <input type="hidden" name="table" value="buy">
+                            <input type="hidden" name="id" value="{{buy.id}}">
                         </form>
                         {% endif %}
 
                         <div class="card-header">
-                            <strong>로또 당첨 정보 추가</strong>
+                            <strong>상담 정보 수정 (내차구매)</strong>
                         </div>
 
                         <form id="createForm" action="/admin/create" method="post" class="form-horizontal">
 
                             {% csrf_token %}
-                            {% if consulting %}
+                            <input type="hidden" name='table' value="buy">
+
+                            {% if buy %}
                             <input type="hidden" name='action' value="update">
-                            <input type="hidden" name='id' value="{{consulting.id}}">
+                            <input type="hidden" name='id' value="{{buy.id}}">
                             {% else %}
                             <input type="hidden" name='action' value="create">
                             {% endif %}
@@ -36,16 +38,16 @@
                                 <div class="row form-group">
                                     <div class="col col-md-2"><label class=" form-control-label">차량명</label></div>
                                     <div class="col-12 col-md-2">
-                                        <input type="text" name="car_name" class="form-control" value="{{consulting.car_name}}"
-                                            required>
+                                        <input type="text" name="car_name" class="form-control"
+                                            value="{{buy.car_name}}" required>
                                     </div>
                                 </div>
 
                                 <div class="row form-group">
                                     <div class="col col-md-2"><label class=" form-control-label">연락처</label></div>
                                     <div class="col-12 col-md-2">
-                                        <input type="text" name="contact" class="form-control"
-                                            value="{{consulting.contact}}" required>
+                                        <input type="text" name="contact" class="form-control" value="{{buy.contact}}"
+                                            required>
                                     </div>
                                 </div>
 
@@ -53,7 +55,7 @@
                                     <div class="col col-md-2"><label class=" form-control-label">지역명</label></div>
                                     <div class="col-12 col-md-2">
                                         <input type="text" name="location" class="form-control"
-                                            value="{{consulting.location}}" required>
+                                            value="{{buy.location}}" required>
                                     </div>
                                 </div>
 
@@ -61,7 +63,7 @@
                                     <div class="col col-md-2"><label class=" form-control-label">상담현황</label></div>
                                     <div class="col-12 col-md-2">
                                         <input type="text" name="status_consulting" class="form-control"
-                                            value="{{consulting.status_consulting}}" required>
+                                            value="{{buy.status_consulting}}" required>
                                     </div>
                                 </div>
 
@@ -69,7 +71,7 @@
                                     <div class="col col-md-2"><label class=" form-control-label">판매현황</label></div>
                                     <div class="col-12 col-md-2">
                                         <input type="text" name="status_selling" class="form-control"
-                                            value="{{consulting.status_selling}}" required>
+                                            value="{{buy.status_selling}}" required>
                                     </div>
                                 </div>
 
@@ -79,7 +81,7 @@
 
                         <!-- footer -->
                         <div class="card-footer" style="text-align: right;">
-                            {% if consulting %}
+                            {% if buy %}
                             <button type="submit" class="btn btn-outline-primary btn-sm" form="createForm">
                                 수정하기
                             </button>

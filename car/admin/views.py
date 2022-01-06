@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from datetime import date, timedelta, datetime
-from car_app.models import Admin, Consulting
+from car_app.models import Admin, Buy, Installment, Sell
 
 def loged_in(request):
     try: 
@@ -30,17 +30,45 @@ def logout(request):
     return redirect('/admin')
 
 
-def consulting(request):
+def sell(request):
     if loged_in(request):
-        consulting_list = Consulting.objects.all()
-        return render(request, "consulting.html", {'consulting_list':consulting_list})
+        sell_list = Sell.objects.all()
+        return render(request, "sell.html", {'sell_list':sell_list})
     else:
         return redirect('/admin/login')
 
-def consulting_detail(request, id):
+def buy(request):
     if loged_in(request):
-        consulting = Consulting.objects.get(id=id)
-        return render(request, "consulting_detail.html", {'consulting':consulting})
+        buy_list = Buy.objects.all()
+        return render(request, "buy.html", {'buy_list':buy_list})
+    else:
+        return redirect('/admin/login')
+
+def installment(request):
+    if loged_in(request):
+        installment_list = Installment.objects.all()
+        return render(request, "installment.html", {'installment_list':installment_list})
+    else:
+        return redirect('/admin/login')
+
+def sell_detail(request, id):
+    if loged_in(request):
+        sell = Sell.objects.get(id=id)
+        return render(request, "sell_detail.html", {'sell':sell})
+    else:
+        return redirect('/admin/login') 
+
+def buy_detail(request, id):
+    if loged_in(request):
+        buy = Buy.objects.get(id=id)
+        return render(request, "buy_detail.html", {'buy':buy})
+    else:
+        return redirect('/admin/login') 
+
+def installment_detail(request, id):
+    if loged_in(request):
+        installment = Installment.objects.get(id=id)
+        return render(request, "installment_detail.html", {'installment':installment})
     else:
         return redirect('/admin/login') 
 
@@ -61,9 +89,17 @@ def delete(request):
     if loged_in(request):
         table = request.POST.get('table')
         id = request.POST.get('id')
-        if table == 'consulting':
-            consulting = Consulting.objects.get(id=id)
+        
+        if table == 'sell':
+            consulting = Sell.objects.get(id=id)
             consulting.delete()
+        elif table == 'buy':
+            consulting = Buy.objects.get(id=id)
+            consulting.delete()
+        elif table == 'installment':
+            consulting = Installment.objects.get(id=id)
+            consulting.delete()
+
         return redirect("/admin")
     else:
         return redirect('/admin/login')
@@ -74,6 +110,7 @@ def create(request):
         if request.method == "POST":
 
             action = request.POST.get('action')
+            table = request.POST.get('table')
             id = request.POST.get('id')
             
             car_name = request.POST.get('car_name')
@@ -83,7 +120,7 @@ def create(request):
             status_selling = request.POST.get('status_selling')
             
             if action == "create":
-                consulting = Consulting(
+                consulting = Sell(
                     car_name=car_name,
                     contact = contact,
                     location=location,
@@ -93,7 +130,16 @@ def create(request):
                 location.save()
 
             if action == "update":
-                consulting = Consulting.objects.get(id=id)
+                print(table)
+                if table == "sell":
+                    consulting = Sell.objects.get(id=id)
+                elif table == "buy":
+                    consulting = Buy.objects.get(id=id)
+                elif table == "installment":
+                    consulting = Installment.objects.get(id=id)
+                else:
+                    consulting = None
+                print(consulting)
                 consulting.car_name = car_name
                 consulting.contact = contact
                 consulting.location = location
@@ -101,7 +147,7 @@ def create(request):
                 consulting.status_selling = status_selling
                 consulting.save()
 
-            return redirect("/admin/consulting/{}".format(consulting.id))
+            return redirect("/admin/{}/{}".format(table, consulting.id))
         else:
             return render(request, "consulting_detail.html")
     else:
