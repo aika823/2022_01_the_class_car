@@ -201,16 +201,16 @@ section.count .count-wrap .count-item .count-card .inner p:nth-child(2) {
 }
 
 
-/* section#review */
-section#review {
+/* section.review */
+section.review {
   width: 100%;
   padding: 150px 0 100px;
   background-color: #F9F9F9;
 }
-section#review.mobile {
+section.review.mobile {
   display: none;
 }
-section#review .review-wrap {
+section.review .review-wrap {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   column-gap: 40px;
@@ -219,7 +219,7 @@ section#review .review-wrap {
   align-items: center;
   width: 100%;
 }
-section#review .review-wrap .review-item {
+section.review .review-wrap .review-item {
   /* width: 100%; */
   width: 280px;
   box-sizing: border-box;
@@ -231,7 +231,7 @@ section#review .review-wrap .review-item {
   /* overflow: hidden; */
   /* filter: drop-shadow(4px 4px 10px rgba(0, 0, 0, 0.6)); */
 }
-section#review .review-wrap .review-item .review-image {
+section.review .review-wrap .review-item .review-image {
   /* border-radius: 20px 20px 0px 20px; */
   width: 100%;
   height: 210px;
@@ -240,17 +240,25 @@ section#review .review-wrap .review-item .review-image {
   background-size: cover;
   background-repeat: no-repeat;
 }
-section#review .review-wrap .review-item .review-image img {
+section.review .review-wrap .review-item .review-image img {
   width: 100%;
 }
-section#review .review-wrap .review-item .review-text {
+section.review .review-wrap .review-item .review-text {
   height: 160px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 0 10px;
 }
-section#review .review-wrap .review-item .review-text p {
+section.review .review-wrap .review-item .review-text .view {
+  color: #898989;
+}
+section.review .review-wrap .review-item .review-text .view i {
+  color: #00C7AE;
+  margin-top: 10px;
+  margin-right: 6px;
+}
+section.review .review-wrap .review-item .review-text p {
   margin-top: 10px;
   color: #545454;
   font-size: 14px;
@@ -266,6 +274,14 @@ section#process {
 }
 section#process .process-wrap .process-img {
   width: 100%;
+  /* height: 300px;
+  background-image: url('../images/process_mobile.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; */
+}
+section#process .process-wrap .process-img img.mobile {
+  display: none;
 }
 section#process .process-img,
 section#process .process-img img {
@@ -344,12 +360,34 @@ section#contact h2 {
     margin-bottom: 50px;
   }
 
-  section#review .review-wrap {
+  section.review .review-wrap {
     grid-template-columns: 1fr 1fr;
   }
 
   section#main .main-wrap .consulting-wrap .slide-card p.consult-title {
     width: 300px;
+  }
+
+  section.review.pc {
+    display: none;
+  }
+  section.review.mobile {
+    display: block;
+  }
+  section.review.mobile .review-wrap {
+    grid-template-columns: 1fr;
+  }
+  section.review.mobile .review-wrap .slick-list {
+    height: 370px;
+    width: 285px;
+    box-shadow: 2px 2px 16px rgb(0 0 0 / 25%);
+    border-radius: 20px;
+  }
+  section.review.mobile .review-wrap .review-item {
+    box-shadow: none;
+  }
+  section.review .review-wrap .review-item .review-text p {
+    font-size: 14px;
   }
 }
 
@@ -371,30 +409,10 @@ section#contact h2 {
     height: 28px;
   }
 
-  section#review .review-wrap {
+  section.review .review-wrap {
     column-gap: 20px;
   }
-  section#review.pc {
-    display: none;
-  }
-  section#review.mobile {
-    display: block;
-  }
-  section#review.mobile .review-wrap {
-    grid-template-columns: 1fr;
-  }
-  section#review.mobile .review-wrap .slick-list {
-    height: 370px;
-    width: 285px;
-    box-shadow: 2px 2px 16px rgb(0 0 0 / 25%);
-    border-radius: 20px;
-  }
-  section#review.mobile .review-wrap .review-item {
-    box-shadow: none;
-  }
-  section#review .review-wrap .review-item .review-text p {
-    font-size: 14px;
-  }
+  .modal_wrap .modal_cnt { width: 80%;}
 }
 
 @media all and (max-width: 600px) {
@@ -453,11 +471,11 @@ section#contact h2 {
     font-size: 38px;
   }
 
-  section#review {
+  section.review {
     padding-top: 100px;
   }
 
-  section#review.mobile .review-wrap .slick-list {
+  section.review.mobile .review-wrap .slick-list {
     height: 370px;
     width: 230px;
   }
@@ -466,6 +484,13 @@ section#contact h2 {
   }
   .slick-next {
     right: 30px;
+  }
+
+  section#process .process-wrap .process-img img.mobile {
+    display: block;
+  }
+  section#process .process-wrap .process-img img.pc {
+    display: none;
   }
 } 
 
