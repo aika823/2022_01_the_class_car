@@ -37,11 +37,17 @@ def index(request):
             )
             installment.save()
 
-        return redirect('/')
+        consulting_list = Sell.objects.order_by('?')
+        context = {
+            'consulting_list' : consulting_list,
+            'modal':True
+        }
+        return render(request, "index.html", context=context)
     else:
         consulting_list = Sell.objects.order_by('?')
         context = {
-            'consulting_list' : consulting_list
+            'consulting_list' : consulting_list,
+            'modal':False
         }
         return render(request, "index.html", context=context)
 
