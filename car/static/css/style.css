@@ -14,7 +14,7 @@ section#main {
 }
 section#main .main-wrap {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 50% 50%;
   width: 100%;
   column-gap: 65px;
 }
@@ -99,6 +99,7 @@ section#main .main-wrap .main-form .form-row .btn-submit {
   padding: 12px 0;
   width: 100%;
   margin-top: 20px;
+  cursor: pointer;
 }
 
 section#main .main-wrap .consulting-wrap {

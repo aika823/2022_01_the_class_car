@@ -60,6 +60,22 @@
     <!-- sidenav end -->
 
 
+    <!-- section#modalAlert -->
+    <section id="modalAlert">
+      <article class="modal_cnt">
+        <div class="modal_body">
+          <div class="alert">
+            <div class="img-wrap">
+              <img src="/static/images/check.png" alt="">
+            </div>
+            <h3>상담이 접수되었습니다!</h3>
+          </div>
+        </div>
+        <a href="javascript:void(0)" class="close_btn">닫기</a>
+      </article>
+      <div class="modal_dim"></div>
+    </section>
+
     <!-- section#main start -->
     <section id="main">
         <div class="main-wrap content">
@@ -73,7 +89,7 @@
                 <p>※ 전국 네트워크망 시스템을 통해서 인증된 딜러들의 입찰경쟁을 통해
                     <br>내차의 최고가 견적을 알아보세요!</p>
 
-                <form id="formSell" action="" method="post" class="form-sell">
+                <form id="formSell" action="" method="post" class="form-sell form">
                     {% csrf_token %}
                     <input type="hidden" name="table" value="sell">
                     <div class="form-row">
@@ -557,7 +573,15 @@
 
 
     <div class="blog">
-      <a href="https://m.place.naver.com/place/1554780959/home?entry=pll" target="_blank"><img src="/static/images/blog.png" alt=""></a>
+      <a href="tel:0507-1473-9019">
+        <img src="/static/images/telephone-call.png" alt="">
+      </a>
+      <a href="https://m.place.naver.com/place/1554780959/home?entry=pll" target="_blank">
+        <img src="/static/images/blog.png" alt="">
+      </a>
+      <a href="https://open.kakao.com/o/sqs65USd" target="_blank">
+        <img src="/static/images/kakao.png" alt="">
+      </a>
     </div>
 
     
@@ -743,7 +767,7 @@
         <p>대표자 : 정성훈</p>
         <p>사업자등록번호 : 426-81-02494</p>
         <p>사업장 주소지 : 대전광역시 서구 계룡로232번길 31, 204호(월평동)</p>
-        <p>대표 번호 : 050-71473-9019</p>
+        <p>대표 번호 : 0507-1473-9019</p>
         <br>
         <p>Copyright© THE CLASS MOTORS. All rights reserved</p>
     </footer>
@@ -886,6 +910,39 @@
         body.removeChild(scrollDiv);
         return scrollbarWidth;
       }
+    </script>
+
+    <script>
+      $modalAlert = $('#modalAlert');
+
+      $('.form').submit(function() {
+        $body.addClass('modal_in');
+        $modalAlert.fadeIn(300);
+        $body.css('padding-right', getScrollWidth());
+        alert('modal')
+      });
+
+      $('.close_btn, .modal_dim').on('click', function () {
+        var speed = 300;
+        $modalAlert.fadeOut(speed);
+        setTimeout(function () {
+          $body.removeClass('modal_in');
+          $body.css('padding-right', 0)
+        }, speed)
+      });
+
+      function getScrollWidth() {
+        var body = document.querySelector('body');
+        var scrollDiv = document.createElement('div');
+        scrollDiv.className = 'fake_sjwidth';
+        body.appendChild(scrollDiv);
+        var scrollbarWidth = $(document).height() > $(window).height() ? scrollDiv.offsetWidth - scrollDiv.clientWidth :
+        0;
+
+        body.removeChild(scrollDiv);
+        return scrollbarWidth;
+      }
+
     </script>
 </body>
 
