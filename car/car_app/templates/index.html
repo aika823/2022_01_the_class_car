@@ -63,19 +63,20 @@
     <section id="main">
         <div class="main-wrap content">
             <div class="main-form">
-              <h1><span>내차팔기</span> 상담신청</h1>
-              <div class="type">
-                <a class="sell active" href="javascript:void(0)">내차판매</a>
-                <a class="buy" href="javascript:void(0)">내차구매</a>
-                <a class="discount" href="javascript:void(0)">할부상담</a>
-              </div>
+                <h1><span>내차팔기</span> 상담신청</h1>
+                <div class="type">
+                    <a class="sell active" href="javascript:void(0)">내차판매</a>
+                    <a class="buy" href="javascript:void(0)">내차구매</a>
+                    <a class="discount" href="javascript:void(0)">할부상담</a>
+                </div>
                 <p>※ 전국 네트워크망 시스템을 통해서 인증된 딜러들의 입찰경쟁을 통해
-                  <br>내차의 최고가 견적을 알아보세요!</p>
+                    <br>내차의 최고가 견적을 알아보세요!</p>
 
-                <form action="" method="post" class="form-sell">
-                {% csrf_token %}
+                <form id="formSell" action="" method="post" class="form-sell">
+                    {% csrf_token %}
+                    <input type="hidden" name="table" value="sell">
                     <div class="form-row">
-                        <input type="text" name="car_name" placeholder="차량명을 입력해주세요." required/>
+                        <input type="text" name="car_name" placeholder="차량명을 입력해주세요." required />
                     </div>
                     <div class="form-row">
                         <input type="text" name="contact" placeholder="연락처를 입력해주세요. Ex) 01012341234" required />
@@ -88,61 +89,63 @@
                         <label for="">개인정보 수집/이용 동의 <a href="javascript:void(0)">[내용보기]</a></label>
                     </div>
                     <div class="form-row">
-                        <button class="btn-submit" type="submit">내차팔기상담신청</button>
+                        <button class="btn-submit" type="submit" form="formSell">내차팔기상담신청</button>
                     </div>
                 </form>
 
-                <form action="" method="post" class="form-buy">
-                  {% csrf_token %}
-                      <div class="form-row">
-                          <input type="text" name="car_name" placeholder="차량명을 입력해주세요." required/>
-                      </div>
-                      <div class="form-row">
-                          <input type="text" name="contact" placeholder="연락처를 입력해주세요. Ex) 01012341234" required />
-                      </div>
-                      <div class="form-row">
-                          <input type="text" name="location" placeholder="지역명을 입력해주세요." required />
-                      </div>
-                      <div class="form-row form-row--checkbox">
-                          <input type="checkbox" name="privacy_agreement" required>
-                          <label for="">개인정보 수집/이용 동의 <a href="javascript:void(0)">[내용보기]</a></label>
-                      </div>
-                      <div class="form-row">
-                          <button class="btn-submit" type="submit">내차팔기상담신청</button>
-                      </div>
-                  </form>
-
-                  <form action="" method="post" class="form-discount">
+                <form id="formBuy" action="" method="post" class="form-buy">
                     {% csrf_token %}
-                        <div class="form-row">
-                            <input type="text" name="car_name" placeholder="차량명을 입력해주세요." required/>
-                        </div>
-                        <div class="form-row">
-                            <input type="text" name="contact" placeholder="연락처를 입력해주세요. Ex) 01012341234" required />
-                        </div>
-                        <div class="form-row">
-                            <input type="text" name="location" placeholder="지역명을 입력해주세요." required />
-                        </div>
-                        <div class="form-row form-row--checkbox">
-                            <input type="checkbox" name="privacy_agreement" required>
-                            <label for="">개인정보 수집/이용 동의 <a href="javascript:void(0)">[내용보기]</a></label>
-                        </div>
-                        <div class="form-row">
-                            <button class="btn-submit" type="submit">내차팔기상담신청</button>
-                        </div>
-                    </form>
+                    <input type="hidden" name="table" value="buy">
+                    <div class="form-row">
+                        <input type="text" name="car_name" placeholder="차량명을 입력해주세요." required />
+                    </div>
+                    <div class="form-row">
+                        <input type="text" name="contact" placeholder="연락처를 입력해주세요. Ex) 01012341234" required />
+                    </div>
+                    <div class="form-row">
+                        <input type="text" name="location" placeholder="지역명을 입력해주세요." required />
+                    </div>
+                    <div class="form-row form-row--checkbox">
+                        <input type="checkbox" name="privacy_agreement" required>
+                        <label for="">개인정보 수집/이용 동의 <a href="javascript:void(0)">[내용보기]</a></label>
+                    </div>
+                    <div class="form-row">
+                        <button class="btn-submit" type="submit" form="formBuy">내차팔기상담신청</button>
+                    </div>
+                </form>
+
+                <form id="formInstallment" action="" method="post" class="form-discount">
+                    {% csrf_token %}
+                    <input type="hidden" name="table" value="installment">
+                    <div class="form-row">
+                        <input type="text" name="car_name" placeholder="차량명을 입력해주세요." required />
+                    </div>
+                    <div class="form-row">
+                        <input type="text" name="contact" placeholder="연락처를 입력해주세요. Ex) 01012341234" required />
+                    </div>
+                    <div class="form-row">
+                        <input type="text" name="location" placeholder="지역명을 입력해주세요." required />
+                    </div>
+                    <div class="form-row form-row--checkbox">
+                        <input type="checkbox" name="privacy_agreement" required>
+                        <label for="">개인정보 수집/이용 동의 <a href="javascript:void(0)">[내용보기]</a></label>
+                    </div>
+                    <div class="form-row">
+                        <button class="btn-submit" type="submit" form="formInstallment">내차팔기상담신청</button>
+                    </div>
+                </form>
             </div>
 
             <div class="consulting-wrap">
                 <h2><span>판매중인</span> 상담리스트</h2>
                 <div class="slide">
-                {% for consulting in consulting_list %}
-                <div class="slide-card">
-                    <p class="status">{{consulting.status_consulting}}</p>
-                    <!--<p class="status">{{consulting.status_selling}}</p>-->
-                    <p class="consult-title">[{{consulting.car_name}}] 차량의 판매상담을 원합니다. ({{consulting.location}})</p>
-                </div>
-                {% endfor %}
+                    {% for consulting in consulting_list %}
+                    <div class="slide-card">
+                        <p class="status">{{consulting.status_consulting}}</p>
+                        <!--<p class="status">{{consulting.status_selling}}</p>-->
+                        <p class="consult-title">[{{consulting.car_name}}] 차량의 판매상담을 원합니다. ({{consulting.location}})</p>
+                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -191,7 +194,8 @@
             <h2 class="section-title">고객후기</h2>
             <div class="review-wrap">
                 <div class="review-item">
-                    <div class="review-image" style="height: 370px; overflow:visible; background-image: url('/static/images/review.png'); background-position: center;">
+                    <div class="review-image"
+                        style="height: 370px; overflow:visible; background-image: url('/static/images/review.png'); background-position: center;">
                         <!-- <img src="/static/images/review.png" alt="" style="height: 310px;"> -->
                     </div>
                     <!-- <div class="review-text">
@@ -254,7 +258,7 @@
                     </div>
                     <div class="review-text">
                         <h4>아우디A6 판매후기</h4>
-                        <p>신경 많이 써주셔서 감사합니다. 덕분에 최고가에 판매할 수 있었습니다. 
+                        <p>신경 많이 써주셔서 감사합니다. 덕분에 최고가에 판매할 수 있었습니다.
                         </p>
                     </div>
                 </div>
@@ -275,81 +279,81 @@
 
     <!-- section#review start -->
     <section id="review" class="mobile">
-      <div class="content">
-        <h2 class="section-title">고객후기</h2>
-        <div class="review-wrap slide-review">
-          <div class="review-item">
-              <div class="review-image" style="background-image: url('/static/images/review (1).jpg');">
-                  <!-- <img src="/static/images/review (1).jpg" alt=""> -->
-              </div>
-              <div class="review-text">
-                  <h4>아우디A6 판매후기</h4>
-                  <p>최고가에 판매했고, 정말 친절하게 진행해 주셨습니다!! 추천드립니다!
-                  </p>
-              </div>
-          </div>
-          <div class="review-item">
-              <div class="review-image" style="background-image: url('/static/images/review (2).jpg');">
-                  <!-- <img src="/static/images/review (2).jpg" alt=""> -->
-              </div>
-              <div class="review-text">
-                  <h4>아우디A6 판매후기</h4>
-                  <p>꼼꼼하게 봐주시고, 친절하게 상담해 주셔서 감사합니다. 덕분에 최고가에 판매했습니다!
-                  </p>
-              </div>
-          </div>
-          <div class="review-item">
-              <div class="review-image" style="background-image: url('/static/images/review (3).jpg');">
-                  <!-- <img src="/static/images/review (3).jpg" alt=""> -->
-              </div>
-              <div class="review-text">
-                  <h4>아우디A6 판매후기</h4>
-                  <p>최고가에 판매했습니다. 대만족합니다!! 감사합니다!!!
-                  </p>
-              </div>
-          </div>
-          <div class="review-item">
-              <div class="review-image" style="background-image: url('/static/images/review (4).jpg');">
-                  <!-- <img src="/static/images/review (4).jpg" alt=""> -->
-              </div>
-              <div class="review-text">
-                  <h4>아우디A6 판매후기</h4>
-                  <p>친절한 응대와 세심한 처리 감사드립니다. 최고가에 판매 했습니다.
-                  </p>
-              </div>
-          </div>
-          <div class="review-item">
-              <div class="review-image" style="background-image: url('/static/images/review (5).jpg');">
-                  <!-- <img src="/static/images/review (5).jpg" alt=""> -->
-              </div>
-              <div class="review-text">
-                  <h4>아우디A6 판매후기</h4>
-                  <p>덕분에 최고가에 판매했어요. 감사합니다! 지인에게도 추천할게요~
-                  </p>
-              </div>
-          </div>
-          <div class="review-item">
-              <div class="review-image" style="background-image: url('/static/images/review (6).jpg');">
-                  <!-- <img src="/static/images/review (6).jpg" alt=""> -->
-              </div>
-              <div class="review-text">
-                  <h4>아우디A6 판매후기</h4>
-                  <p>신경 많이 써주셔서 감사합니다. 덕분에 최고가에 판매할 수 있었습니다. 
-                  </p>
-              </div>
-          </div>
-          <div class="review-item">
-              <div class="review-image" style="background-image: url('/static/images/review (7).jpg');">
-                  <!-- <img src="/static/images/review (7).jpg" alt=""> -->
-              </div>
-              <div class="review-text">
-                  <h4>아우디A6 판매후기</h4>
-                  <p>원래 후기를 잘 안남기는데 친절하게 상담해주시고, 최고가에 판매할 수 있도록 많은 도움 주셨습니다. 감사합니다!!!!
-                  </p>
-              </div>
-          </div>
-          </div>
-      </div>
+        <div class="content">
+            <h2 class="section-title">고객후기</h2>
+            <div class="review-wrap slide-review">
+                <div class="review-item">
+                    <div class="review-image" style="background-image: url('/static/images/review (1).jpg');">
+                        <!-- <img src="/static/images/review (1).jpg" alt=""> -->
+                    </div>
+                    <div class="review-text">
+                        <h4>아우디A6 판매후기</h4>
+                        <p>최고가에 판매했고, 정말 친절하게 진행해 주셨습니다!! 추천드립니다!
+                        </p>
+                    </div>
+                </div>
+                <div class="review-item">
+                    <div class="review-image" style="background-image: url('/static/images/review (2).jpg');">
+                        <!-- <img src="/static/images/review (2).jpg" alt=""> -->
+                    </div>
+                    <div class="review-text">
+                        <h4>아우디A6 판매후기</h4>
+                        <p>꼼꼼하게 봐주시고, 친절하게 상담해 주셔서 감사합니다. 덕분에 최고가에 판매했습니다!
+                        </p>
+                    </div>
+                </div>
+                <div class="review-item">
+                    <div class="review-image" style="background-image: url('/static/images/review (3).jpg');">
+                        <!-- <img src="/static/images/review (3).jpg" alt=""> -->
+                    </div>
+                    <div class="review-text">
+                        <h4>아우디A6 판매후기</h4>
+                        <p>최고가에 판매했습니다. 대만족합니다!! 감사합니다!!!
+                        </p>
+                    </div>
+                </div>
+                <div class="review-item">
+                    <div class="review-image" style="background-image: url('/static/images/review (4).jpg');">
+                        <!-- <img src="/static/images/review (4).jpg" alt=""> -->
+                    </div>
+                    <div class="review-text">
+                        <h4>아우디A6 판매후기</h4>
+                        <p>친절한 응대와 세심한 처리 감사드립니다. 최고가에 판매 했습니다.
+                        </p>
+                    </div>
+                </div>
+                <div class="review-item">
+                    <div class="review-image" style="background-image: url('/static/images/review (5).jpg');">
+                        <!-- <img src="/static/images/review (5).jpg" alt=""> -->
+                    </div>
+                    <div class="review-text">
+                        <h4>아우디A6 판매후기</h4>
+                        <p>덕분에 최고가에 판매했어요. 감사합니다! 지인에게도 추천할게요~
+                        </p>
+                    </div>
+                </div>
+                <div class="review-item">
+                    <div class="review-image" style="background-image: url('/static/images/review (6).jpg');">
+                        <!-- <img src="/static/images/review (6).jpg" alt=""> -->
+                    </div>
+                    <div class="review-text">
+                        <h4>아우디A6 판매후기</h4>
+                        <p>신경 많이 써주셔서 감사합니다. 덕분에 최고가에 판매할 수 있었습니다.
+                        </p>
+                    </div>
+                </div>
+                <div class="review-item">
+                    <div class="review-image" style="background-image: url('/static/images/review (7).jpg');">
+                        <!-- <img src="/static/images/review (7).jpg" alt=""> -->
+                    </div>
+                    <div class="review-text">
+                        <h4>아우디A6 판매후기</h4>
+                        <p>원래 후기를 잘 안남기는데 친절하게 상담해주시고, 최고가에 판매할 수 있도록 많은 도움 주셨습니다. 감사합니다!!!!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- section#review end -->
@@ -393,13 +397,14 @@
 
     <!-- JS -->
     <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <!-- slick -->
     <script type="text/javascript" src="/static/slick/slick.min.js"></script>
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('.slide').slick({
                 vertical: true,
                 infinite: true,
@@ -426,26 +431,26 @@
     </script>
 
     <script>
-      $('.slide-review').slick({
-        infinite: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-      });
+        $('.slide-review').slick({
+            infinite: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+        });
     </script>
 
     <script>
-        $(function() {
+        $(function () {
             var $header = $('header');
             var $page = $('.page-start');
             var $window = $(window);
             var pageOffsetTop = $page.offset().top;
 
-            $window.resize(function() {
+            $window.resize(function () {
                 pageOffsetTop = $page.offset().top;
             });
 
-            $window.on('scroll', function() {
+            $window.on('scroll', function () {
                 var scrolled = $window.scrollTop() >= pageOffsetTop;
                 $header.toggleClass('header-color', scrolled);
             });
@@ -463,26 +468,26 @@
     </script>
 
     <script>
-      $("#main .type a").click(function() {
-        if($(this).hasClass('active') == false) {
-          $('#main .type a').removeClass('active');
-          $(this).addClass('active');
-        }
+        $("#main .type a").click(function () {
+            if ($(this).hasClass('active') == false) {
+                $('#main .type a').removeClass('active');
+                $(this).addClass('active');
+            }
 
-        if($(this).hasClass('sell') == true) {
-          $('.main-form form').css('display', 'none');
-          $('.form-sell').css('display', 'block');
-          $('.main-form h1 span').text('내차팔기');
-        } else if($(this).hasClass('buy') == true) {
-          $('.main-form form').css('display', 'none');
-          $('.form-buy').css('display', 'block');
-          $('.main-form h1 span').text('내차사기');
-        } else if($(this).hasClass('discount') == true) {
-          $('.main-form form').css('display', 'none');
-          $('.form-discount').css('display', 'block');
-          $('.main-form h1 span').text('할부상담');
-        }
-      });
+            if ($(this).hasClass('sell') == true) {
+                $('.main-form form').css('display', 'none');
+                $('.form-sell').css('display', 'block');
+                $('.main-form h1 span').text('내차팔기');
+            } else if ($(this).hasClass('buy') == true) {
+                $('.main-form form').css('display', 'none');
+                $('.form-buy').css('display', 'block');
+                $('.main-form h1 span').text('내차사기');
+            } else if ($(this).hasClass('discount') == true) {
+                $('.main-form form').css('display', 'none');
+                $('.form-discount').css('display', 'block');
+                $('.main-form h1 span').text('할부상담');
+            }
+        });
     </script>
 </body>
 

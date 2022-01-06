@@ -1,0 +1,107 @@
+{%extends "admin_base.html"%}
+
+{% block content %}
+<div id="right-panel" class="right-panel">
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
+                <div class="col-lg-9">
+
+                    <div class="card">
+
+                        {% if installment %}
+                        <form id="deleteForm" action="/admin/delete" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="table" value="installment">
+                            <input type="hidden" name="id" value="{{installment.id}}">
+                        </form>
+                        {% endif %}
+
+                        <div class="card-header">
+                            <strong>상담 정보 수정 (내차구매)</strong>
+                        </div>
+
+                        <form id="createForm" action="/admin/create" method="post" class="form-horizontal">
+
+                            {% csrf_token %}
+                            <input type="hidden" name='table' value="installment">
+
+                            {% if installment %}
+                            <input type="hidden" name='action' value="update">
+                            <input type="hidden" name='id' value="{{installment.id}}">
+                            {% else %}
+                            <input type="hidden" name='action' value="create">
+                            {% endif %}
+
+                            <div class="card-body card-block">
+
+                                <div class="row form-group">
+                                    <div class="col col-md-2"><label class=" form-control-label">차량명</label></div>
+                                    <div class="col-12 col-md-2">
+                                        <input type="text" name="car_name" class="form-control" value="{{installment.car_name}}"
+                                            required>
+                                    </div>
+                                </div>
+
+                                <div class="row form-group">
+                                    <div class="col col-md-2"><label class=" form-control-label">연락처</label></div>
+                                    <div class="col-12 col-md-2">
+                                        <input type="text" name="contact" class="form-control" value="{{installment.contact}}"
+                                            required>
+                                    </div>
+                                </div>
+
+                                <div class="row form-group">
+                                    <div class="col col-md-2"><label class=" form-control-label">지역명</label></div>
+                                    <div class="col-12 col-md-2">
+                                        <input type="text" name="location" class="form-control" value="{{installment.location}}"
+                                            required>
+                                    </div>
+                                </div>
+
+                                <div class="row form-group">
+                                    <div class="col col-md-2"><label class=" form-control-label">상담현황</label></div>
+                                    <div class="col-12 col-md-2">
+                                        <input type="text" name="status_consulting" class="form-control"
+                                            value="{{installment.status_consulting}}" required>
+                                    </div>
+                                </div>
+
+                                <div class="row form-group">
+                                    <div class="col col-md-2"><label class=" form-control-label">판매현황</label></div>
+                                    <div class="col-12 col-md-2">
+                                        <input type="text" name="status_selling" class="form-control"
+                                            value="{{installment.status_selling}}" required>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </form>
+
+                        <!-- footer -->
+                        <div class="card-footer" style="text-align: right;">
+                            {% if installment %}
+                            <button type="submit" class="btn btn-outline-primary btn-sm" form="createForm">
+                                수정하기
+                            </button>
+                            <button type="submit" class="btn btn-outline-danger btn-sm" form="deleteForm">
+                                삭제하기
+                            </button>
+                            {% else %}
+                            <button type="submit" class="btn btn-outline-primary btn-sm" form="createForm">
+                                추가하기
+                            </button>
+                            {% endif %}
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    {% endblock content %}

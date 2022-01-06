@@ -28,13 +28,13 @@
                                 </thead>
 
                                 <tbody>
-                                    {% for consulting in consulting_list %}
-                                    <tr onclick="location.href='/admin/consulting/{{consulting.id}}'">
-                                        <td>{{consulting.car_name}}</td>
-                                        <td>{{consulting.contact}}</td>
-                                        <td>{{consulting.location}}</td>
-                                        <td>{{consulting.status_consulting}}</td>
-                                        <td>{{consulting.status_selling}}</td>
+                                    {% for installment in installment_list %}
+                                    <tr onclick="location.href='/admin/installment/{{installment.id}}'">
+                                        <td>{{installment.car_name}}</td>
+                                        <td>{{installment.contact}}</td>
+                                        <td>{{installment.location}}</td>
+                                        <td>{{installment.status_consulting}}</td>
+                                        <td>{{installment.status_selling}}</td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>
@@ -61,4 +61,4 @@
         $('#bootstrap-data-table-export').DataTable();
     });
 </script>
-{% endblock extrascripts %} 
+{% endblock extrascripts %}
