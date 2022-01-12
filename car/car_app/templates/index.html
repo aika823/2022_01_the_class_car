@@ -59,7 +59,7 @@
     </div>
     <!-- sidenav end -->
 
-
+    {% if modal %}
     <!-- section#modalAlert -->
     <section id="modalAlert">
       <article class="modal_cnt">
@@ -75,6 +75,7 @@
       </article>
       <div class="modal_dim"></div>
     </section>
+    {% endif %}
 
     <!-- section#main start -->
     <section id="main">
@@ -916,12 +917,7 @@
     <script>
       $modalAlert = $('#modalAlert');
 
-      $('.form').submit(function() {
-        $body.addClass('modal_in');
-        $modalAlert.fadeIn(300);
-        $body.css('padding-right', getScrollWidth());
-        alert('modal')
-      });
+     
 
       $('.close_btn, .modal_dim').on('click', function () {
         var speed = 300;
@@ -930,6 +926,7 @@
           $body.removeClass('modal_in');
           $body.css('padding-right', 0)
         }, speed)
+        location.href = "/";
       });
 
       function getScrollWidth() {
