@@ -19,22 +19,30 @@
 
                                 <thead>
                                     <tr>
+                                        <th scope="col">#</th>
                                         <th scope="col">차량명</th>
+                                        <th scope="col">차량번호</th>
+                                        <th scope="col">주행거리</th>
                                         <th scope="col">연락처</th>
                                         <th scope="col">지역명</th>
                                         <th scope="col">상담현황</th>
                                         <th scope="col">판매현황</th>
+                                        <th scope="col">생성시간</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
                                     {% for buy in buy_list %}
                                     <tr onclick="location.href='/admin/buy/{{buy.id}}'">
+                                        <td>{{buy.id}}</td>
                                         <td>{{buy.car_name}}</td>
+                                        <td>{{buy.car_number}}</td>
+                                        <td>{{buy.mileage}}</td>
                                         <td>{{buy.contact}}</td>
                                         <td>{{buy.location}}</td>
                                         <td>{{buy.status_consulting}}</td>
                                         <td>{{buy.status_selling}}</td>
+                                        <td>{{buy.created_at |date:'Y-m-d'}}</td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>
@@ -58,7 +66,11 @@
 {% block extrascripts %}
 <script>
     $(document).ready(function () {
-        $('#bootstrap-data-table-export').DataTable();
+        $('#bootstrap-data-table-export').DataTable({
+            "order": [
+                [0, "desc"]
+            ]
+        });
     });
 </script>
 {% endblock extrascripts %}

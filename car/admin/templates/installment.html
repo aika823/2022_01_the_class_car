@@ -19,22 +19,29 @@
 
                                 <thead>
                                     <tr>
+                                        <th scope="col">#</th>
                                         <th scope="col">차량명</th>
+                                        <th scope="col">차량번호</th>
+                                        <th scope="col">주행거리</th>
                                         <th scope="col">연락처</th>
                                         <th scope="col">지역명</th>
                                         <th scope="col">상담현황</th>
-                                        <th scope="col">판매현황</th>
+                                        <th scope="col">생성일</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
                                     {% for installment in installment_list %}
                                     <tr onclick="location.href='/admin/installment/{{installment.id}}'">
+                                        <td>{{installment.id}}</td>
                                         <td>{{installment.car_name}}</td>
+                                        <td>{{installment.car_number}}</td>
+                                        <td>{{installment.mileage}}</td>
                                         <td>{{installment.contact}}</td>
                                         <td>{{installment.location}}</td>
                                         <td>{{installment.status_consulting}}</td>
                                         <td>{{installment.status_selling}}</td>
+                                        <td>{{installment.created_at |date:'Y-m-d'}}</td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>
@@ -58,7 +65,11 @@
 {% block extrascripts %}
 <script>
     $(document).ready(function () {
-        $('#bootstrap-data-table-export').DataTable();
+        $('#bootstrap-data-table-export').DataTable({
+            "order": [
+                [0, "desc"]
+            ]
+        });
     });
 </script>
 {% endblock extrascripts %}

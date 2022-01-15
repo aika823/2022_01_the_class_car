@@ -72,18 +72,6 @@ def installment_detail(request, id):
     else:
         return redirect('/admin/login') 
 
-def location_detail(request, id):
-    if loged_in(request):
-        location = Location.objects.get(id=id)
-        lotto_list = Lotto.objects.all().order_by('-car_name')
-        context = {
-            'location':location,
-            'lotto_list':lotto_list
-        }
-        return render(request, "create_location.html", context=context)
-    else:
-        return redirect('/admin/login')
-
 
 def delete(request):
     if loged_in(request):

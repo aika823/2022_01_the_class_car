@@ -19,7 +19,6 @@
 
                                 <thead>
                                     <tr>
-                                        <th scope="col">#</th>
                                         <th scope="col">차량명</th>
                                         <th scope="col">차량번호</th>
                                         <th scope="col">주행거리</th>
@@ -27,22 +26,19 @@
                                         <th scope="col">지역명</th>
                                         <th scope="col">상담현황</th>
                                         <th scope="col">판매현황</th>
-                                        <th scope="col">생성일시</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    {% for sell in sell_list %}
-                                    <tr onclick="location.href='/admin/sell/{{sell.id}}'">
-                                        <td>{{sell.id}}</td>
-                                        <td>{{sell.car_name}}</td>
-                                        <td>{{sell.car_number}}</td>
-                                        <td>{{sell.mileage}}</td>
-                                        <td>{{sell.contact}}</td>
-                                        <td>{{sell.location}}</td>
-                                        <td>{{sell.status_consulting}}</td>
-                                        <td>{{sell.status_selling}}</td>
-                                        <td>{{sell.created_at |date:'Y-m-d'}}</td>
+                                    {% for consulting in consulting_list %}
+                                    <tr onclick="location.href='/admin/consulting/{{consulting.id}}'">
+                                        <td>{{consulting.car_name}}</td>
+                                        <td>{{consulting.car_number}}</td>
+                                        <td>{{consulting.mileage}}</td>
+                                        <td>{{consulting.contact}}</td>
+                                        <td>{{consulting.location}}</td>
+                                        <td>{{consulting.status_consulting}}</td>
+                                        <td>{{consulting.status_selling}}</td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>
@@ -66,11 +62,7 @@
 {% block extrascripts %}
 <script>
     $(document).ready(function () {
-        $('#bootstrap-data-table-export').DataTable({
-            "order": [
-                [0, "desc"]
-            ]
-        });
+        $('#bootstrap-data-table-export').DataTable();
     });
 </script>
-{% endblock extrascripts %}
+{% endblock extrascripts %} 

@@ -9,8 +9,9 @@ from django.contrib.auth.models import User
 
 
 class Consulting(models.Model):
-    
     car_name = models.CharField(db_column="car_name", null=False, max_length=20)
+    car_number = models.CharField(db_column="car_number", null=False, max_length=20, default="")
+    mileage = models.CharField(db_column="mileage", null=False, max_length=20, default="")
     contact  = models.CharField(db_column="contact", null=False, max_length=20)
     location= models.CharField(db_column="location", null=False, max_length=20)
     privacy_agreement = models.BooleanField(db_column = "privacy_agreement", null=False, default=False)
@@ -25,6 +26,8 @@ class Consulting(models.Model):
 class Sell(models.Model):
     
     car_name = models.CharField(db_column="car_name", null=False, max_length=20)
+    car_number = models.CharField(db_column="car_number", null=False, max_length=20, default="")
+    mileage = models.CharField(db_column="mileage", null=False, max_length=20, default="")
     contact  = models.CharField(db_column="contact", null=False, max_length=20)
     location= models.CharField(db_column="location", null=False, max_length=20)
     privacy_agreement = models.BooleanField(db_column = "privacy_agreement", null=False, default=False)
@@ -39,6 +42,8 @@ class Sell(models.Model):
 class Buy(models.Model):
     
     car_name = models.CharField(db_column="car_name", null=False, max_length=20)
+    car_number = models.CharField(db_column="car_number", null=False, max_length=20, default="")
+    mileage = models.CharField(db_column="mileage", null=False, max_length=20, default="")
     contact  = models.CharField(db_column="contact", null=False, max_length=20)
     location= models.CharField(db_column="location", null=False, max_length=20)
     privacy_agreement = models.BooleanField(db_column = "privacy_agreement", null=False, default=False)
@@ -53,6 +58,8 @@ class Buy(models.Model):
 class Installment(models.Model):
     
     car_name = models.CharField(db_column="car_name", null=False, max_length=20)
+    car_number = models.CharField(db_column="car_number", null=False, max_length=20, default="")
+    mileage = models.CharField(db_column="mileage", null=False, max_length=20, default="")
     contact  = models.CharField(db_column="contact", null=False, max_length=20)
     location= models.CharField(db_column="location", null=False, max_length=20)
     privacy_agreement = models.BooleanField(db_column = "privacy_agreement", null=False, default=False)
